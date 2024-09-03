@@ -2,6 +2,10 @@
 
 import { SymbolInfo } from "react-ts-tradingview-widgets";
 
-export default function SymbolInfoWidget() {
-  return <SymbolInfo colorTheme="dark" autosize locale="kr" />;
+interface SymbolInfoWidgetProps {
+  symbol?: string;
+}
+
+export default function SymbolInfoWidget({ symbol }: SymbolInfoWidgetProps) {
+  return <SymbolInfo colorTheme="dark" autosize locale="kr" symbol={symbol} />;
 }

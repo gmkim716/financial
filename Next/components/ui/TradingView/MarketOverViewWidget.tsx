@@ -6,10 +6,9 @@ export default function MarketOverviewWidget() {
   return (
     <MarketOverview
       colorTheme="dark"
-      height={400}
+      height={800}
       width="100%"
       showFloatingTooltip
-      locale="kr"
     />
   );
 }

@@ -2,16 +2,21 @@
 
 import { AdvancedRealTimeChart } from "react-ts-tradingview-widgets";
 
-export default function AdvancedRealTimeChartWidget() {
+interface AdvancedRealTimeChartWidgetProps {
+  symbol?: string;
+}
+
+export default function AdvancedRealTimeChartWidget({
+  symbol = "AAPL",
+}: AdvancedRealTimeChartWidgetProps) {
   return (
     <AdvancedRealTimeChart
       theme="dark"
-      symbol="MSFT"
-      width={1500}
-      height={1000}
+      symbol={symbol}
       style="2"
       timezone="Asia/Seoul"
       locale="kr"
+      width={1500}
     />
   );
 }

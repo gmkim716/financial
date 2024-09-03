@@ -2,6 +2,12 @@
 
 import { TechnicalAnalysis } from "react-ts-tradingview-widgets";
 
-export default function TechnialAnalysisWidget() {
-  return <TechnicalAnalysis colorTheme="dark" width="100%" />;
+interface TechnicalAnalysisWidgetProps {
+  symbol?: string;
+}
+
+export default function TechnialAnalysisWidget({
+  symbol,
+}: TechnicalAnalysisWidgetProps) {
+  return <TechnicalAnalysis colorTheme="dark" width="100%" symbol={symbol} />;
 }

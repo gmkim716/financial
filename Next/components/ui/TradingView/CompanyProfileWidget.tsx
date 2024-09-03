@@ -2,10 +2,16 @@
 
 import { CompanyProfile } from "react-ts-tradingview-widgets";
 
-export default function CompanyProfileWidget() {
+interface CompanyProfileWidgetProps {
+  symbol?: string;
+}
+
+export default function CompanyProfileWidget({
+  symbol,
+}: CompanyProfileWidgetProps) {
   return (
     <CompanyProfile
-      symbol="MSFT"
+      symbol={symbol}
       colorTheme="dark"
       height={400}
       width="100%"

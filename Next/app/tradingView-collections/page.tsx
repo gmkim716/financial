@@ -1,24 +1,24 @@
-import AdvancedRealTimeChartWidget from "@/components/ui/TradingView/AdvancedRealTimeChart";
-import CompanyProfileWidget from "@/components/ui/TradingView/CompanyProfileWidget";
-import CryptoCoinsHeatmapWidget from "@/components/ui/TradingView/CryptoCoinsHeatmapWidget";
-import CryptoCurrencyMarketWidget from "@/components/ui/TradingView/CrytocurrencyMarketWidget";
-import EconomicCalendarWidget from "@/components/ui/TradingView/EconomicCalanderWidget";
-import ForexCrossRatesWidget from "@/components/ui/TradingView/ForexCrossRatesWidget";
-import ForexHeatMapWidget from "@/components/ui/TradingView/ForexHeatMapWidget";
-import MarketDataWidget from "@/components/ui/TradingView/MarketDataWidget";
-import MarketOverviewWidget from "@/components/ui/TradingView/MarketOverViewWidget";
-import MiniChartWidget from "@/components/ui/TradingView/MiniChartWidget";
-import ScreenerWidget from "@/components/ui/TradingView/ScreenerWidget";
-import { SimpleChart } from "@/components/ui/TradingView/SimpleChart";
-import SingleTickerWidget from "@/components/ui/TradingView/SingleTickerWidget";
-import StockHeatMapWidget from "@/components/ui/TradingView/StockHeatMapWidget";
-import StockMarketWidget from "@/components/ui/TradingView/StockMarketWidget";
-import SymbolInfoWidget from "@/components/ui/TradingView/SymbolInfoWidget";
-import SymbolOverviewWidget from "@/components/ui/TradingView/SymbolOverviewWidget";
-import TechnialAnalysisWidget from "@/components/ui/TradingView/TechnicalAnalysisWidget";
-import TickerTapeWidget from "@/components/ui/TradingView/TickerTapeWidget";
-import TickerWidget from "@/components/ui/TradingView/TickerWidget";
-import TimeLineWidget from "@/components/ui/TradingView/TimelineWidget";
+import AdvancedRealTimeChartWidget from "@/components/ui/tradingView/AdvancedRealTimeChart";
+import CompanyProfileWidget from "@/components/ui/tradingView/CompanyProfileWidget";
+import CryptoCoinsHeatmapWidget from "@/components/ui/tradingView/CryptoCoinsHeatmapWidget";
+import CryptoCurrencyMarketWidget from "@/components/ui/tradingView/CrytocurrencyMarketWidget";
+import EconomicCalendarWidget from "@/components/ui/tradingView/EconomicCalanderWidget";
+import ForexCrossRatesWidget from "@/components/ui/tradingView/ForexCrossRatesWidget";
+import ForexHeatMapWidget from "@/components/ui/tradingView/ForexHeatMapWidget";
+import MarketDataWidget from "@/components/ui/tradingView/MarketDataWidget";
+import MarketOverviewWidget from "@/components/ui/tradingView/MarketOverViewWidget";
+import MiniChartWidget from "@/components/ui/tradingView/MiniChartWidget";
+import ScreenerWidget from "@/components/ui/tradingView/ScreenerWidget";
+import { SimpleChart } from "@/components/ui/tradingView/SimpleChart";
+import SingleTickerWidget from "@/components/ui/tradingView/SingleTickerWidget";
+import StockHeatMapWidget from "@/components/ui/tradingView/StockHeatMapWidget";
+import StockMarketWidget from "@/components/ui/tradingView/StockMarketWidget";
+import SymbolInfoWidget from "@/components/ui/tradingView/SymbolInfoWidget";
+import SymbolOverviewWidget from "@/components/ui/tradingView/SymbolOverviewWidget";
+import TechnialAnalysisWidget from "@/components/ui/tradingView/TechnicalAnalysisWidget";
+import TickerTapeWidget from "@/components/ui/tradingView/TickerTapeWidget";
+import TickerWidget from "@/components/ui/tradingView/TickerWidget";
+import TimeLineWidget from "@/components/ui/tradingView/TimelineWidget";
 
 const initialData = [
   { time: "2018-12-22", value: 32.51 },
