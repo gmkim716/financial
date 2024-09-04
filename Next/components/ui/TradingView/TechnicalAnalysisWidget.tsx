@@ -9,5 +9,5 @@ interface TechnicalAnalysisWidgetProps {
 export default function TechnialAnalysisWidget({
   symbol,
 }: TechnicalAnalysisWidgetProps) {
-  return <TechnicalAnalysis colorTheme="dark" width="100%" symbol={symbol} />;
+  return <TechnicalAnalysis colorTheme="light" width="100%" symbol={symbol} />;
 }

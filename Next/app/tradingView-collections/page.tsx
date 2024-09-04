@@ -1,4 +1,5 @@
-import AdvancedRealTimeChartWidget from "@/components/ui/tradingView/AdvancedRealTimeChart";
+import AdvancedRealTimeChartWidget from "@/components/ui/tradingView/AdvancedRealTimeChartWidget";
+import AdvancedRealTimeChartWidget2 from "@/components/ui/tradingView/AdvancedRealTimeChartWidget2";
 import CompanyProfileWidget from "@/components/ui/tradingView/CompanyProfileWidget";
 import CryptoCoinsHeatmapWidget from "@/components/ui/tradingView/CryptoCoinsHeatmapWidget";
 import CryptoCurrencyMarketWidget from "@/components/ui/tradingView/CrytocurrencyMarketWidget";
@@ -14,7 +15,7 @@ import SingleTickerWidget from "@/components/ui/tradingView/SingleTickerWidget";
 import StockHeatMapWidget from "@/components/ui/tradingView/StockHeatMapWidget";
 import StockMarketWidget from "@/components/ui/tradingView/StockMarketWidget";
 import SymbolInfoWidget from "@/components/ui/tradingView/SymbolInfoWidget";
-import SymbolOverviewWidget from "@/components/ui/tradingView/SymbolOverviewWidget";
+import { SymbolOverviewWidget } from "@/components/ui/tradingView/SymbolOverviewWidget";
 import TechnialAnalysisWidget from "@/components/ui/tradingView/TechnicalAnalysisWidget";
 import TickerTapeWidget from "@/components/ui/tradingView/TickerTapeWidget";
 import TickerWidget from "@/components/ui/tradingView/TickerWidget";
@@ -38,12 +39,13 @@ export default function TutorialsPage() {
     <>
       <main className="flex flex-col min-h-screen items-center p-12 gap-12">
         <h1>0. Simple Chart</h1>
-        <SimpleChart data={initialData} />
+        {/* <SimpleChart data={initialData} /> */}
         <h1>1. Advanced Real Time Chart</h1>
         <AdvancedRealTimeChartWidget />
-        <h1>2. Technical Analysis</h1>
+        {/* <AdvancedRealTimeChartWidget2 /> */}
+        <h1>2. Technical Analysis - OK</h1>
         <TechnialAnalysisWidget />
-        <h1>3. Market Overview</h1>
+        <h1>3. Market Overview - OK</h1>
         <MarketOverviewWidget />
         <h1>4. Market Data</h1>
         <MarketDataWidget />
