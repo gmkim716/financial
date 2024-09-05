@@ -1,4 +1,4 @@
-import TickerTapeWidget from "./tradingView/TickerTapeWidget";
+import TickerTapeWidget from "./tradingViewWidget/TickerTapeWidget";
 
 export default function Header() {
   return (

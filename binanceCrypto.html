@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket 실시간 데이터</title>
+  </head>
+  <body>
+    <h1>실시간 데이터 스트리밍</h1>
+    <div id="price">가격 불러오는 중...</div>
+
+    <script>
+      // Binance의 WebSocket을 사용하여 실시간 가격 스트리밍
+      const socket = new WebSocket(
+        "wss://stream.binance.com:9443/ws/btcusdt@trade"
+      );
+
+      // 웹소켓 연결이 열렸을 때
+      socket.onopen = function (event) {
+        console.log("WebSocket 연결이 열렸습니다.");
+      };
+
+      // 웹소켓으로 데이터가 들어왔을 때
+      socket.onmessage = function (event) {
+        const data = JSON.parse(event.data);
+        const price = parseFloat(data.p).toFixed(2); // 실시간 가격 정보
+        document.getElementById("price").innerHTML = `BTC/USDT 가격: $${price}`;
+      };
+
+      // 웹소켓 연결이 닫혔을 때
+      socket.onclose = function (event) {
+        console.log("WebSocket 연결이 닫혔습니다.");
+      };
+
+      // 웹소켓에서 에러가 발생했을 때
+      socket.onerror = function (error) {
+        console.log("WebSocket 에러가 발생했습니다: " + error.message);
+      };
+    </script>
+  </body>
+</html>

@@ -1,9 +1,9 @@
-import AdvancedRealTimeChartWidget from "@/components/ui/tradingView/AdvancedRealTimeChartWidget";
-import CompanyProfileWidget from "@/components/ui/tradingView/CompanyProfileWidget";
-import SymbolInfoWidget from "@/components/ui/tradingView/SymbolInfoWidget";
-import { SymbolOverviewWidget } from "@/components/ui/tradingView/SymbolOverviewWidget";
-import TechnialAnalysisWidget from "@/components/ui/tradingView/TechnicalAnalysisWidget";
-import TimeLineWidget from "@/components/ui/tradingView/TimelineWidget";
+import AdvancedRealTimeChartWidget from "@/components/ui/tradingViewWidget/AdvancedRealTimeChartWidget";
+import CompanyProfileWidget from "@/components/ui/tradingViewWidget/CompanyProfileWidget";
+import SymbolInfoWidget from "@/components/ui/tradingViewWidget/SymbolInfoWidget";
+import { SymbolOverviewWidget } from "@/components/ui/tradingViewWidget/SymbolOverviewWidget";
+import TechnialAnalysisWidget from "@/components/ui/tradingViewWidget/TechnicalAnalysisWidget";
+import TimeLineWidget from "@/components/ui/tradingViewWidget/TimelineWidget";
 
 interface StockPageProps {
   params: {

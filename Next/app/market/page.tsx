@@ -1,5 +1,5 @@
-import MarketOverviewWidget from "@/components/ui/tradingView/MarketOverViewWidget";
-import TimeLineWidget from "@/components/ui/tradingView/TimelineWidget";
+import MarketOverviewWidget from "@/components/ui/tradingViewWidget/MarketOverViewWidget";
+import TimeLineWidget from "@/components/ui/tradingViewWidget/TimelineWidget";
 
 export default function MarketPage() {
   return (
