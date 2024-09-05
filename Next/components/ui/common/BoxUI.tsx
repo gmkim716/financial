@@ -1,6 +1,6 @@
 /**
  * name: BoxUI.tsx
- * details: 둥근 모서리 / 음영
+ * details: 둥근 모서리 / 그림자
  * action: onClick
  * usages: UI
  */
@@ -9,39 +9,36 @@
 
 interface BoxUIProps {
   children: React.ReactNode;
-  p?: number;
-  px?: number;
-  py?: number;
   round?: number;
   bgColor?: string;
-  fontSize?: number;
   colorTheme?: "light" | "dark";
+  boxShadow?: "type1" | "type2"; // ex) type1: 학습-레벨, type2: 학습-카테고리
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 export default function BoxUI({
   children,
   round = 16,
-  p = 16,
-  px,
-  py,
-  fontSize,
   colorTheme = "light",
+  boxShadow,
   onClick,
 }: BoxUIProps) {
-  const theme = colorTheme === "light" ? "bg-white" : "bg-black text-white";
+  const theme =
+    colorTheme === "light" ? "bg-white text-black" : "bg-black text-white";
+
+  const boxShadowStyles: { [key: string]: string } = {
+    type1: "4px 4px 10px rgba(0, 0, 0, 0.25)",
+    type2: "0px -4px 10px rgba(0, 0, 0, 0.15)",
+  };
+
+  const shadow = boxShadow ? boxShadowStyles[boxShadow] : undefined;
 
   return (
     <div
-      className={`flex flex-col ${theme}`}
+      className={`flex flex-col text-center ${theme} ${shadow}`}
       style={{
-        fontSize: `${fontSize}px`,
         borderRadius: `${round}px`,
-        padding: `${p}px`,
-        paddingLeft: `${px}px`,
-        paddingRight: `${px}px`,
-        paddingTop: `${py}px`,
-        paddingBottom: `${py}px`,
+        boxShadow: shadow,
       }}
       onClick={onClick}
     >

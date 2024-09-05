@@ -9,12 +9,14 @@ interface ButtonUIProps {
 export default function ButtonUI({
   children,
   round,
-  p,
+  p = 10,
   px,
   py,
 }: ButtonUIProps) {
   return (
-    <button className={`bg-gray-600 p-${p} rounded-[${round}px] text-white`}>
+    <button
+      className={`bg-gray-600 p-${p} px-${px} py-${py} rounded-[${round}px] text-white`}
+    >
       {children}
     </button>
   );
