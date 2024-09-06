@@ -69,7 +69,7 @@ const orderbookData = [
 ];
 
 interface OrderbookProps {
-  handleOrderbookItemClick?: (price: number) => void;
+  handleOrderbookItemClick: (price: number) => void;
 }
 
 export default function Orderbook({

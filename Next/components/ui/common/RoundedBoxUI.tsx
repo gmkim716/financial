@@ -1,28 +1,29 @@
-/**
- * name: BoxUI.tsx
- * details: 둥근 모서리 / 그림자
- * action: onClick
- * usages: UI
- */
-
 "use client";
 
-interface BoxUIProps {
+/**
+ * 둥근 테두리 박스 컴포넌트
+ * @param {React.ReactNode} children - 컴포넌트 내부에 들어갈 요소
+ * @param {string} colorTheme - 색상 테마
+ * @param {string} boxShadow - 박스 쉐도우 타입
+ * @param {React.MouseEventHandler<HTMLDivElement>} onClick - 클릭 이벤트
+ * @param {number} round - 둥근 정도
+ */
+
+interface RoundedBoxUIProps {
   children: React.ReactNode;
-  round?: number;
-  bgColor?: string;
   colorTheme?: "light" | "dark";
   boxShadow?: "type1" | "type2"; // ex) type1: 학습-레벨, type2: 학습-카테고리
   onClick?: React.MouseEventHandler<HTMLDivElement>;
+  round?: number;
 }
 
-export default function BoxUI({
+export default function RoundedBoxUI({
   children,
-  round = 16,
   colorTheme = "light",
   boxShadow,
+  round = 16,
   onClick,
-}: BoxUIProps) {
+}: RoundedBoxUIProps) {
   const theme =
     colorTheme === "light" ? "bg-white text-black" : "bg-black text-white";
 
@@ -35,10 +36,10 @@ export default function BoxUI({
 
   return (
     <div
-      className={`flex flex-col text-center ${theme} ${shadow}`}
+      className={`flex flex-col text-center ${theme}`}
       style={{
-        borderRadius: `${round}px`,
         boxShadow: shadow,
+        borderRadius: `${round}px`,
       }}
       onClick={onClick}
     >

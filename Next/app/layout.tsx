@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { createContext } from "react";
 import Footer from "@/components/ui/Footer";
 import Header from "@/components/ui/Header";
 
@@ -17,9 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* <Header /> */}
+        <Header />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );
