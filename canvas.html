@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expanding Circle Animation</title>
+    <style>
+      /* 캔버스 스타일 */
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Expanding Circle Animation</h1>
+    <canvas id="canvas" width="800" height="600"></canvas>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+
+      let radius = 0;
+      const maxRadius = 50;
+      const centerX = canvas.width / 2; // 캔버스의 중심 좌표 (X축)
+      const centerY = canvas.height / 2; // 캔버스의 중심 좌표 (Y축)
+
+      // 애니메이션 함수
+      function animateCircle() {
+        // 캔버스 초기화 (기존의 그림을 지움)
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // 원 그리기
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(41, 98, 255, 0.3)"; // 파란색 투명도 있는 원
+        ctx.fill();
+
+        // 반지름 증가
+        radius += 1;
+
+        // 최대 반지름에 도달하면 반지름을 0으로 초기화
+        if (radius > maxRadius) {
+          radius = 0;
+        }
+
+        // 애니메이션 반복
+        requestAnimationFrame(animateCircle);
+      }
+
+      // 애니메이션 시작
+      animateCircle();
+    </script>
+  </body>
+</html>

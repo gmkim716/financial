@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TradingView with Expanding Circle</title>
+    <style>
+      /* 차트 컨테이너 크기 설정 */
+      #chart-container {
+        position: relative;
+        width: 800px;
+        height: 600px;
+      }
+
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none; /* 클릭 이벤트를 차단 */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>TradingView Chart with Expanding Circle</h1>
+    <div id="chart-container"></div>
+
+    <!-- Lightweight Charts 라이브러리 로드 -->
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const chartContainer = document.getElementById("chart-container");
+
+        // 차트 생성
+        const chart = LightweightCharts.createChart(chartContainer, {
+          width: chartContainer.clientWidth,
+          height: chartContainer.clientHeight,
+          layout: {
+            textColor: "black",
+            background: { color: "white" },
+          },
+        });
+
+        const lineSeries = chart.addLineSeries({
+          color: "#2962FF",
+          lineWidth: 2,
+        });
+
+        // 차트 데이터 추가
+        lineSeries.setData([
+          { value: 0, time: "2022-01-17" },
+          { value: 8, time: "2022-01-18" },
+          { value: 10, time: "2022-01-19" },
+          { value: 20, time: "2022-01-20" },
+          { value: 3, time: "2022-01-21" },
+          { value: 43, time: "2022-01-22" },
+          { value: 41, time: "2022-01-23" },
+        ]);
+
+        chart.timeScale().fitContent();
+
+        // 차트 렌더링 후 좌표 계산
+        setTimeout(() => {
+          const lastData = { time: "2022-01-23", value: 41 };
+          const centerX = chart.timeScale().timeToCoordinate(lastData.time);
+          const centerY = lineSeries.priceToCoordinate(lastData.value);
+
+          // 좌표가 null이 아니면 애니메이션을 실행
+          if (centerX === null || centerY === null) {
+            console.error("좌표를 계산할 수 없습니다.");
+            return;
+          }
+
+          console.log("Calculated centerX:", centerX, "centerY:", centerY);
+
+          // 캔버스 생성
+          const canvas = document.createElement("canvas");
+          canvas.width = chartContainer.clientWidth;
+          canvas.height = chartContainer.clientHeight;
+          chartContainer.appendChild(canvas);
+
+          const ctx = canvas.getContext("2d");
+          if (!ctx) return;
+
+          let radius = 0;
+          const maxRadius = 50;
+
+          // 애니메이션 함수 (반복되도록 설정)
+          function animateCircle() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // 캔버스 초기화
+
+            // 좌표가 유효한지 확인
+            if (centerX !== null && centerY !== null) {
+              ctx.beginPath();
+              ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+              ctx.fillStyle = "rgba(41, 98, 255, 0.3)";
+              ctx.fill();
+            }
+
+            radius += 0.5;
+
+            if (radius >= maxRadius) {
+              radius = 0; // 반지름이 최대 크기에 도달하면 초기화
+            }
+
+            requestAnimationFrame(animateCircle); // 애니메이션 반복 실행
+          }
+
+          animateCircle(); // 애니메이션 시작
+        }, 300); // 좌표 계산이 끝날 때까지 약간의 지연을 추가 (300ms)
+
+        // 차트 크기가 변경될 경우 캔버스 크기 업데이트
+        window.addEventListener("resize", () => {
+          canvas.width = chartContainer.clientWidth;
+          canvas.height = chartContainer.clientHeight;
+        });
+      });
+    </script>
+  </body>
+</html>
